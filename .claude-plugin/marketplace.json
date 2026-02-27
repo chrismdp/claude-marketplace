@@ -10,7 +10,7 @@
     {
       "name": "lockbox",
       "description": "Taint-aware context quarantine — blocks external actions when untrusted data enters the session",
-      "version": "0.11.0",
+      "version": "0.11.1",
       "category": "security",
       "author": {
         "name": "Chris Parsons"
