@@ -1,0 +1,10 @@
+{
+  "name": "chrismdp",
+  "description": "Chris Parsons's public skills: capture, delegate, dream, lateral and ralph",
+  "version": "1.0.0",
+  "author": {
+    "name": "Chris Parsons",
+    "url": "https://chrismdp.com"
+  },
+  "license": "MIT"
+}

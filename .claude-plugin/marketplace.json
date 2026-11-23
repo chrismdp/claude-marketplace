@@ -21,6 +21,17 @@
       },
       "homepage": "https://github.com/chrismdp/lockbox",
       "tags": ["security", "quarantine", "taint-tracking"]
+    },
+    {
+      "name": "chrismdp",
+      "description": "Chris Parsons's public skills: capture, delegate, dream, lateral and ralph",
+      "version": "1.0.0",
+      "category": "productivity",
+      "author": {
+        "name": "Chris Parsons"
+      },
+      "source": "./plugins/chrismdp",
+      "homepage": "https://github.com/chrismdp/claude-marketplace"
     }
   ]
 }
