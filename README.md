@@ -2,23 +2,10 @@
 
 A curated collection of Claude Code plugins.
 
-## Installation
-
-```bash
-claude plugins marketplace add chrismdp github chrismdp/claude-marketplace
-```
-
-Then install individual plugins:
-
-```bash
-claude plugins install lockbox@chrismdp
-```
-
 ## Available Plugins
 
 | Plugin | Category | Description |
 |--------|----------|-------------|
-| [lockbox](https://github.com/chrismdp/lockbox) | Security | Taint-aware context quarantine — blocks external actions when untrusted data enters the session |
 | [chrismdp](#chrismdp) | Productivity | Five public skills by Chris Parsons |
 
 ### chrismdp
