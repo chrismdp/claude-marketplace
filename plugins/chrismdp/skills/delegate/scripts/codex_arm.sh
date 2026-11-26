@@ -51,7 +51,7 @@ done
 # --disable plugins/plugin_sharing keeps an autonomous run on the narrow
 # code-editing surface even when the local install has marketplace plugins.
 # --dangerously-bypass-approvals-and-sandbox is the flag this version takes
-# (NOT --yolo). 2-hour cap: a GUARD against a runaway, not a budget. 40 minutes
+# (NOT --yolo). 3-hour cap: a GUARD against a runaway, not a budget. 40 minutes
 # was too short (Chris, 2026-08-19) — a real ticket that touches a store, its
 # runner and an admin page runs past it, and a timeout produces exit 124 with a
 # dirty tree and no commit, which is indistinguishable from the model failing.
@@ -73,9 +73,9 @@ mkdir -p "$logdir"
 jsonlog="$logdir/$(date +%Y%m%dT%H%M%S)-$label-codex.jsonl"
 lastmsg="$logdir/$(date +%Y%m%dT%H%M%S)-$label-codex.final.md"
 
-echo "codex_arm: running $model (2h cap), events -> $jsonlog"
+echo "codex_arm: running $model (3h cap), events -> $jsonlog"
 start=$SECONDS
-timeout 7200 codex exec --json --disable plugins --disable plugin_sharing \
+timeout 10800 codex exec --json --disable plugins --disable plugin_sharing \
   --dangerously-bypass-approvals-and-sandbox -C "$wt" \
   -o "$lastmsg" \
   -c model="$model" -c model_reasoning_effort="$effort" - < "$brief_stamped" > "$jsonlog"

@@ -56,13 +56,13 @@ The sweep removes worktrees freely but deletes only merged branches, so unmerged
 Run every Codex model (Sol, Astra) through `codex exec`, never through pi; the Codex harness gets more from them.
 
 ```bash
-timeout 7200 codex exec --disable plugins --disable plugin_sharing \
+timeout 10800 codex exec --disable plugins --disable plugin_sharing \
   --yolo -C <worktree-dir> \
   -c model="gpt-6.1-sol" -c model_reasoning_effort="high" - < brief.txt
 ```
 
 - The brief is a scratchpad file on stdin, not a repo plan.md. The plugin flags keep the worker on code editing.
-- The 2-hour cap guards against runaways. Exit 124 means incomplete: recover production work as needed; for an experiment, record a resumed attempt separately.
+- The 3-hour cap guards against runaways; waiting for a shared test lock counts against it. Exit 124 means incomplete: recover production work as needed; for an experiment, record a resumed attempt separately.
 - Run it as exactly one command with literal absolute paths and `run_in_background: true`. The allow rule `Bash(codex exec *)` strips a leading `timeout` but not a variable assignment, a `$VAR` redirect, a `cd ... &&` prefix or a trailing `; echo`; any of those prompts Chris. Take the exit code from the background-task notification.
 - `codex exec resume` takes `[SESSION_ID] [PROMPT]` with `-c`, `--last`, `--all`, but not `-C` or `--yolo` (both error), and filters sessions by cwd. For a review-driven fix, prefer a fresh `codex exec` with a self-contained brief naming the prior commit, files and changes; keep `resume` for a genuine timeout with a dirty tree.
 
