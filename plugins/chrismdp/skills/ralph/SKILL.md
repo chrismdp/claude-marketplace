@@ -1,6 +1,6 @@
 ---
 name: ralph
-description: "Autonomous relay for code work, one ticket per loop: picks the next ticket, gets it done and verified, marks it, moves on. Queues: ticket folders (docs/tickets/, docs/changes/, doc/changes/, doc/tickets/), GitHub issues (a `.ralph` file with `queue: github-issues`), or a project session whose project has `code_repo`. Playbook for the project 'Today - Track and Improve LCARS'. Also loaded for authoring tickets. Triggers on /ralph, ticket writing in qualifying repos, and project sessions whose playbook is /ralph."
+description: "Autonomous relay for code work, one ticket per loop: picks the next ticket, gets it done and verified, marks it, moves on. Queues: ticket folders (docs/tickets/, docs/changes/, doc/changes/, doc/tickets/), GitHub issues (a `.ralph` file with `queue: github-issues`), the tasks of a See It Done project whose playbook is Ralph, or a project session whose project has `code_repo`. Playbook for the project 'Today - Track and Improve LCARS'. Also loaded for authoring tickets. Triggers on /ralph, ticket writing in qualifying repos, and project sessions whose playbook is /ralph."
 argument-hint: "[optional change-file slug]"
 ---
 
@@ -12,6 +12,7 @@ You are one engineer in a relay: take the next ticket, finish it, mark it, exit.
 
 - **You are a project session** (no shell; your tools include `dispatch_worker` and `land_worker`): read `@playbook/ralph/references/project-session.md` with `today_read` and follow it instead of the engineer steps below. You coordinate; the worker is the engineer.
 - **A `.ralph` file with `queue: github-issues`**: read `references/github-issues.md` (and `references/ticket-files.md` when authoring an issue).
+- **A See It Done project whose playbook is Ralph** (you were handed it, or asked to work it, and you have the See It Done connector): read `references/see-it-done.md`. Its open tasks are the queue.
 - **A ticket folder** (`docs/tickets/`, `docs/changes/`, `doc/tickets/`, `doc/changes/`): read `references/ticket-files.md`. Also read it before writing any ticket.
 
 The reference owns formats and state transitions. A project `RALPH.md` or `AGENTS.md` overrides this skill.
