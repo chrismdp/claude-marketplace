@@ -9,7 +9,7 @@ The queue is the open tasks of that one project, read and changed through the Se
 - **A ticket** is an open task with no one assigned to it. A task assigned to the person is theirs to do: never build it, tick it or reassign it.
 - **The spec** is the task's title, plus a note of the same subject when the title is not enough (`html-notes.md` for "Build HTML notes…"). Read every note in the project before picking, since a later note can overrule an older ticket (see **Decision precedence** in the skill).
 - **Order** is the task list's order. Take the first ticket whose dependencies are met, unless another ticket unblocks more downstream work. Say which one you picked and why in one line.
-- **Tickets carry no start date.** A start date would put the project in See It Done's work queue, and the scheduled worker there has no shell, so it cannot build anything.
+- **Tickets need no start date.** A project with open Claude tasks is handed to See It Done's worker, which works it with this skill.
 
 ## States
 
@@ -27,7 +27,7 @@ Tick a ticket only when its change is live and has been read back on the real ac
 
 ## Who works it
 
-Building needs the repository, a shell and the test lock. So this queue is worked by a Claude Code session with the repository checked out and the See It Done connector, following the rest of this skill and `/delegate`. A session with only connector tools (the scheduled See It Done worker, a phone chat) can read the queue, write a spec note or add a ticket. It does not claim one.
+Building needs the repository, a shell and the project's tests. See It Done's worker runs in a cloud machine with a shell; with the repository attached to its routine, it clones, builds, tests and lands like any engineer here, following the rest of this skill and `/delegate`. A session with no repository (a phone chat, a worker run without the repository attached) can read the queue, write a spec note or add a ticket. It does not claim one; it says in its report that the repository is missing.
 
 ## Writing a ticket
 
